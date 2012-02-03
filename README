@@ -1,4 +1,12 @@
 STM32 an der Hochschule Augsburg 
 --------------------------------
 
+- http://elk.informatik.fh-augsburg.de/cgi-bin/gitweb.cgi
+
+- Anonym klonen:
+  git clone git://elk.informatik.fh-augsburg.de/srv/git/repositories/stm32-at-hsagit
+
+- Mit gitosis Zugriffsrechten:
+  git clone ssh://git@elk.informatik.fh-augsburg.de:2222/stm32-at-hsa.git
+
 H. Hoegl, 2012-02-03 
