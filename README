@@ -22,7 +22,8 @@ Beispielprogramme
     es auch für den STM32 gibt: http://pygmy.utoh.org/riscy. Mittlerweile
     ist es auch portiert fuer TI/LuminaryMicro.
     preasm.tcl, OpenOCD, Olimex ARM USB Tiny JTAG adaptor, gdb, Emacs, 
-    M-x arm-elf-gdb --annotate=3, .gdbinit.
+    M-x arm-elf-gdb --annotate=3, .gdbinit, Text mit Emacs org-mode 
+    geschrieben.
 
 
 H. Hoegl, 2012-02-03 
