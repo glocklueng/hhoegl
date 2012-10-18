@@ -137,3 +137,11 @@ Dump of assembler code for function _start:
 
 (gdb) quit
 
+---
+
+Tags
+
+   ctags-exuberant led-stm32.asm
+
+
+

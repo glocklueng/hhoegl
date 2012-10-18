@@ -12,5 +12,8 @@ all:
 		$(LD) -v -T stm32.ld -nostartfiles -o led-stm32.elf led-stm32.o
 		$(OC) -O binary led-stm32.elf  led-stm32.bin
 
+tags:
+		ctags-exuberant led-stm32.asm
+
 clean:
 		$(RM) -f led-stm32.s led-stm32.bin led-stm32.elf led-stm32.lst *.o *~
