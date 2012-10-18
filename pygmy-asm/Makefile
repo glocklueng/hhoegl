@@ -13,4 +13,4 @@ all:
 		$(OC) -O binary led-stm32.elf  led-stm32.bin
 
 clean:
-		$(RM) -f led-stm32.s
+		$(RM) -f led-stm32.s led-stm32.bin led-stm32.elf led-stm32.lst *.o *~
