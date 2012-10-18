@@ -33,12 +33,24 @@ echo -n 2-2\:1.0 > /sys/bus/usb/drivers/usb-storage/unbind
 
 /home/hhoegl/local/bin/openocd -d 1 -f /home/hhoegl/local/share/openocd/scripts/board/stm32vldiscovery.cfg
 
+   oder
+
+sudo /home/hhoegl/local/bin/openocd
+
+Dieses Kommando liest die Konfigurationsdatei openocd.cfg im aktuellen
+Verzeichnis.
+
+
 (als User)
 
 Telnet Verbindung zum OpenOCD
 -----------------------------
 
 telnet localhost 4444
+
+> gdb_memory_map enable
+
+> gdb_flash_program enable
 
 > help
 
@@ -72,7 +84,12 @@ siehe auch: stm32f1x mass_erase 0
 GDB
 ----
 
+arm-none-eabi-gdb -h
+
+arm-none-eabi-gdb -x <config>
+
 arm-none-eabi-gdb 
+
 
 (gdb) target remote localhost:3333
 
