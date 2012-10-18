@@ -9,4 +9,20 @@ STM32 an der Hochschule Augsburg
 - Mit gitosis Zugriffsrechten:
   git clone ssh://git@elk.informatik.fh-augsburg.de:2222/stm32-at-hsa.git
 
+
+Beispielprogramme
+
+  * Linux, GCC Toolchain selber kompilieren, OpenOCD, GDB, insight, 
+    kgdb, BLink-Programm in C, Einfache Testumgebung fuer Unit-Tests.
+    http://fun-tech.se/stm32/index.php
+
+  * Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
+    http://pygmy.utoh.org/riscy/cortex/led-stm32.html
+    Der Autor Frank Sergeant hat auch das Pygmy Forth geschrieben, das
+    es auch für den STM32 gibt: http://pygmy.utoh.org/riscy. Mittlerweile
+    ist es auch portiert fuer TI/LuminaryMicro.
+    preasm.tcl, OpenOCD, Olimex ARM USB Tiny JTAG adaptor, gdb, Emacs, 
+    M-x arm-elf-gdb --annotate=3, .gdbinit.
+
+
 H. Hoegl, 2012-02-03 
