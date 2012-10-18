@@ -6,3 +6,117 @@ This STM32 assembler demo program is taken from
 
            by Frank Sergeant, 2011
 
+GNU Tools
+---------
+
+Make aufrufen (siehe Makefile):
+
+   make
+
+Disassemblieren:
+
+   arm-none-eabi-objdump --disassemble led-stm32.elf
+
+Hex Dump:
+
+   xxd led-stm32.bin
+
+
+OpenOCD starten
+---------------
+
+tested with OpenOCD 0.6.1 (Oct 2012)
+
+(als root)
+
+echo -n 2-2\:1.0 > /sys/bus/usb/drivers/usb-storage/unbind
+
+/home/hhoegl/local/bin/openocd -d 1 -f /home/hhoegl/local/share/openocd/scripts/board/stm32vldiscovery.cfg
+
+(als User)
+
+Telnet Verbindung zum OpenOCD
+-----------------------------
+
+telnet localhost 4444
+
+> help
+
+> halt
+
+> poll
+
+> halt
+
+> flash info 
+
+> flash erase_sector 0 0 0
+
+siehe auch: stm32f1x mass_erase 0
+
+> flash write_bank 0 led-stm32.bin 0
+
+> stm32f1x.cpu arm  disassemble 0x1c 4   
+0x0000001c  0x4e0d	LDR r6, [pc, #0x34] ; 0x00000054
+0x0000001e  0xf04f0010	MOV.W	r0, #16	; 0x00000010
+0x00000022  0x6030	STR	r0, [r6, #0]
+0x00000024  0x4e0c	LDR r6, [pc, #0x30] ; 0x00000058
+
+> reset init
+
+> resume
+
+> exit
+
+
+GDB
+----
+
+arm-none-eabi-gdb 
+
+(gdb) target remote localhost:3333
+
+(gdb) monitor transport list
+
+(gdb) monitor halt
+
+(gdb) where
+
+(gdb) list
+
+(gdb) continue
+
+(gdb) [Ctrl-C]
+
+(gdb) br <label>
+
+(gdb) info br
+
+(gdb) del <br-nr>
+
+(gdb) ni
+
+(gdb) si
+
+(gdb) p &_start
+$2 = (<text variable, no debug info> *) 0x1c <_start>
+
+(gdb) disas _start
+Dump of assembler code for function _start:
+0x0000001c <+0>:     ldr     r6, [pc, #48]   ; (0x50 <_usage_fault+10>)
+0x0000001e <+2>:     mov.w   r0, #16
+0x00000022 <+6>:     str     r0, [r6, #0]
+...
+
+(gdb) x/4x 0
+0x0 <vectors>:  0x20005000      0x0000001d      0x00000047      0x00000047
+...
+
+(gdb) br delay1
+(gdb) display $r1
+(gdb) cont
+(gdb) si
+(gdb) si, ...
+
+(gdb) quit
+

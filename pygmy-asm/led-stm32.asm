@@ -44,12 +44,16 @@ _start:
         ;; to '0011'.
 
         ldr r6, = GPIOC_CRH
-        ldr r0, = 0x44434444
+        ;ldr r0, = 0x44443444
+        ldr r0, = 0x44444433   ; PC8, PC9
         str r0, [r6]
 
         ;; Load R2 and R3 with the "on" and "off" constants
         mov r2, 0              ; value to turn on LED
-        mov r3, 0x1000         ; value to turn off LED
+				; LED on STM32 P103 is connected to PC16
+        ; mov r3, 0x1000         ; value to turn off LED
+				; LED on STM32 Discovery is connected to PC8
+        mov r3, 0x0300         ; value to turn off LED 
 
         ldr r6, = GPIOC_ODR    ;  point to Port C output data register
 

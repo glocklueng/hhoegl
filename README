@@ -12,10 +12,6 @@ STM32 an der Hochschule Augsburg
 
 Beispielprogramme
 
-  * Linux, GCC Toolchain selber kompilieren, OpenOCD, GDB, insight, 
-    kgdb, BLink-Programm in C, Einfache Testumgebung fuer Unit-Tests.
-    http://fun-tech.se/stm32/index.php
-
   * Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
     http://pygmy.utoh.org/riscy/cortex/led-stm32.html
     Der Autor Frank Sergeant hat auch das Pygmy Forth geschrieben, das
@@ -24,6 +20,16 @@ Beispielprogramme
     preasm.tcl, OpenOCD, Olimex ARM USB Tiny JTAG adaptor, gdb, Emacs, 
     M-x arm-elf-gdb --annotate=3, .gdbinit, Text mit Emacs org-mode 
     geschrieben.
+
+    pygmy-asm/
+
+
+  * Linux, GCC Toolchain selber kompilieren, OpenOCD, GDB, insight, 
+    kgdb, BLink-Programm in C, Einfache Testumgebung fuer Unit-Tests.
+    http://fun-tech.se/stm32/index.php
+
+
+  * https://www.olimex.com/Products/ARM/ST/STM32-P103/
 
 
 H. Hoegl, 2012-02-03 
