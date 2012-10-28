@@ -12,7 +12,9 @@ STM32 an der Hochschule Augsburg
 
 Beispielprogramme
 
-  * Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
+  * pygmy-asm/
+  
+    Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
     http://pygmy.utoh.org/riscy/cortex/led-stm32.html
     Der Autor Frank Sergeant hat auch das Pygmy Forth geschrieben, das
     es auch für den STM32 gibt: http://pygmy.utoh.org/riscy. Mittlerweile
@@ -21,7 +23,11 @@ Beispielprogramme
     M-x arm-elf-gdb --annotate=3, .gdbinit, Text mit Emacs org-mode 
     geschrieben.
 
-    pygmy-asm/
+
+  * gostm32/
+
+    STM32 Discovery Tutorials. Using the STM32 Discovery with Open Source Software
+    Siehe gostm32.blogspot.com, Beispiel "blinky".
 
 
   * Linux, GCC Toolchain selber kompilieren, OpenOCD, GDB, insight, 
