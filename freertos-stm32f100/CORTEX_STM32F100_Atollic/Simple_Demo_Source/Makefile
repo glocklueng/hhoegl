@@ -9,7 +9,8 @@ LDFLAGS =	-L/home/hhoegl/sat/arm-none-eabi/lib -lc
 #LD = arm-none-eabi-ld
 #LDFLAGS =	-L/home/hhoegl/local/arm-2012.03/arm-none-eabi/lib -lc
 
-DIR = /home/hhoegl/freertos-stm32f100
+# DIR = /home/hhoegl/freertos-stm32f100
+DIR = /home/hhoegl/Dienste/git/stm32-at-hsa/freertos-stm32f100
 
 VPATH = .:../../Source/:../Utilities/STM32_EVAL/STM32_Discovery/:../Libraries/STM32F10x_StdPeriph_Driver/src/:../../Source/portable/GCC/ARM_CM3/:../../Source/portable/MemMang/
 
