@@ -183,8 +183,11 @@ static xTimerHandle xLEDTimer = NULL;
 
 int main(void)
 {
+
 	/* Configure the NVIC, LED outputs and button inputs. */
 	prvSetupHardware();
+
+  while (1) ;  /* --hh */
 
 	/* Create the queue. */
 	xQueue = xQueueCreate( mainQUEUE_LENGTH, sizeof( unsigned long ) );
@@ -311,7 +314,7 @@ static void prvSetupHardware( void )
 {
 	/* Ensure that all 4 interrupt priority bits are used as the pre-emption
 	priority. */
-	NVIC_PriorityGroupConfig( NVIC_PriorityGroup_4 );
+	// --hh NVIC_PriorityGroupConfig( NVIC_PriorityGroup_4 );
 
 	/* Set up the LED outputs and the button inputs. */
 	STM32vldiscovery_LEDInit( LED3 );
@@ -319,8 +322,12 @@ static void prvSetupHardware( void )
 	STM32vldiscovery_PBInit( BUTTON_USER, BUTTON_MODE_EXTI );
 	
 	/* Start with the LEDs off. */
+	/*
 	STM32vldiscovery_LEDOff( LED3 );
 	STM32vldiscovery_LEDOff( LED4 );
+  */
+	STM32vldiscovery_LEDOn( LED3 );
+	STM32vldiscovery_LEDOn( LED4 );
 }
 /*-----------------------------------------------------------*/
 

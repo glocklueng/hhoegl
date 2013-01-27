@@ -7,7 +7,9 @@ SECTIONS
         /* interrupt vectors start at zero */
         . = 0x0;  /* start of flash */
 
-        .text :  {  *(.text)   }
+        .text :  {  
+				   *(.text)   
+				}
 
         /* constant data follows code but still in flash */
         .data :
@@ -25,4 +27,9 @@ SECTIONS
           *(.bss)
           *(.ram)
         }
+
+        __stack_end__ = 0x20010000;  /* --hh */
 }
+
+
+
