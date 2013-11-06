@@ -1,0 +1,81 @@
+
+#include "stm32f10x.h"
+
+#define STACK_TOP 0x20002000-4										/* This can move quite a lot ! */
+
+void nmi_handler(void);												
+void hardfault_handler(void);
+void SysTickISR(void);
+int main(void);
+
+/* vector table */
+
+unsigned int * myvectors[16] 
+__attribute__ ((section("vectors")))= {
+    (unsigned int *)	STACK_TOP,         
+    (unsigned int *) 	main,              
+    (unsigned int *)	nmi_handler,       
+    (unsigned int *)	hardfault_handler,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    0,
+    (unsigned int *)    SysTickISR
+};
+
+unsigned char green,blue;		//values for brightness
+
+int main(void){	
+	int n = 0;
+	int button;
+
+	RCC->APB2ENR |= 0x10 | 0x04;									/* Enable the GPIOA (bit 2) and GPIOC (bit 8) */
+	GPIOC->CRH = 0x11;												/* Set GPIOC Pin 8 and Pin 9 to outputs */
+	GPIOA->CRL = 0x04;												/* Set GPIOA Pin 0 to input floating */
+    
+    green = 0xF;
+    blue = 0xF0;
+
+    SysTick->LOAD = 0x200;                              //reload value of the systick timer
+    SysTick->CTRL = 0x7;                                //enable systick timer
+
+    while(1)
+    {
+    }
+}
+
+
+void SysTickISR(void){
+    static unsigned int counter = 0;                    //counter for pwm
+    
+    counter++;
+    
+    if(counter > 0xFF){                                 //reset the counter at 0xFF
+        counter = 0;
+        GPIOC->BSRR = ((1<<25) | (1<<24));              //switch off both LEDs
+    }
+    if(counter > blue)
+        GPIOC->BSRR = (1<<8);                           //if brightness is reached switch on the leds
+    if(counter > green)
+        GPIOC->BSRR = (1<<9);
+
+
+}
+
+void nmi_handler(void)
+{
+    return ;
+}
+
+void hardfault_handler(void)
+{
+    return ;
+}
+

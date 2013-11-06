@@ -1,0 +1,107 @@
+http://gostm32.blogspot.de/2010/09/inside-blinkyc.html
+
+Inside blinky.c
+
+Sept 25 2010
+
+A short post explaining some of the things in blinky.c. This can be read in
+conjunction with the reference guide RM0041 and the Hitex document "Intro to
+Cortex-M3 programming". There is a lot to take in, this isn't a little 16C84
+Processor.
+
+ After this I will step back a little and provide some simpler tutorials and
+ exercises, so don't worry if you find this a bit incomprehensible. 
+
+#include "stm32f10x.h"
+
+ I wanted the tutorials to be quite close to the metal. ST produce a library
+ which abstracts a lot of the work. While this helps development, there are two
+ disadvantages - one, the routines aren't particularly quick, but mainly if you
+ are learning as I am you don't learn how the MCU works, just how the library
+ works.
+
+  My personal POV is that if you know the hardware then understanding the
+  library is easy as pie, but understanding the library gives you a much poorer
+  handle on the hardware.
+
+   This file is a combination of two ST header files, type and map. It provides a set of 8, 16 and 32 bit types, along with References to the registers (which map to the register description in the documentation) - so for example "GPIOA->CRL" refers to register CRL in GPIOA
+
+#define STACK_TOP 0x20002000   
+
+ The ARM has a stack which works its way down through memory. This constant is the top of RAM - so data works up, and the stack works down.  It is possible the two might meet in the middle, in which case .... all bets off.
+
+ unsigned int * myvectors[4] = { .. }    
+
+  This is actually wrong - this array is much bigger than this. It's an array of addresses used to set up the STM32 - in this case, the start address of the program, the initial value of the stack pointer, and the addresses of routines to handle Non Maskable Interrupts and Hardware Errors. There's actually many more of these vectors which we will see when we come to interrupts. Don't worry about this one for a while.
+
+  RCC->APB2ENR |= 0x10 | 0x04;                                    
+
+   This completely threw me when I couldn't get Blinky to work. Unlike most other MCUs, you actually need to turn on the peripherals you are using, they just play dead otherwise. This command sets (using logical OR) bit 4 and bit 2 of APB2ENR - which enables GPIOA (bit 2) and GPIOC (bit 4) respectively. The binary constant 0x10|0x04 is equivalent to 10100 in binary.
+
+   GPIOC->CRH = 0x11;                                           
+    GPIOA->CRL = 0x04;
+     These two are very similar. The first sets pins 8 and 9 of GPIOC (the LEDs) to outputs, the second sets pin 0 of GPIOA (the button) to inputs.
+
+      Each GPIO port is 16 bits wide. CRH and CRL go together to make one big 64 bit control register for each port - each port having four control bits. Pins 0-7 are stored in CRL, Pins 8-15 in CRH.
+
+       In binary, what it is doing is setting Port8 and Port9 's control value to 0001 and Port0's to 0100 - these are the standard input and output values. There are all sorts of other things you can do - pull high, pull low, open collector circuitry, interrupt on change.
+
+       button = ((GPIOA->IDR & 0x1) == 0)
+
+        This reads the level on the button - GPIOA->IDR is the input register for GPIOA, and it is masked with 0000000000000001 binary to mask out the value on the button. The reason it is "checked equal to zero" is the button is normally logic '1' when not pressed - so this expression returns true when the button is pressed. 
+
+	GPIOC->BSRR = 1<<8 ; 
+	 GPIOC->BSRR = 1<<24;    
+
+	  The STM32 has some nice facilities for bit work. Bits can be addressed individually - normally to turn a bit on, you would or a value into the Output Register. The STM32 allows you to address bits individually with the BSRR.
+
+	   Each BSRR is 32 bits wide. The bottom half (0-15) turn bits on, and the top half (16-31) turn them off.
+
+	    So to set PC8 to 'on', all you have to do is to write 1<<8 (or 00000001 00000000) into BSRR and it does the work for you. Similarly, writing 1 << 24 - the same thing in the 'top half' turns the bit off.
+
+	     The STM32 also allows you to write to individual bits in data memory in the same way.
+
+	     asm("nop");    
+
+	      The C compiler is quite smart. It is quite capable of looking at the delay() function and concluding that it actually doesn't do anything at all, and replacing it with a subroutine return. The asm("nop") assembles a no-operation in the middle of that, but at compile time the compiler doesn't know it's a nop - just that it is inline assembly - so it is unable to optimise away the delay loop because it might do something. (You can see this working if you remove this line, compile it and look at blinky.lst)
+
+	       Of course, you shouldn't do delays this way - the STM32 has timers for this sort of thing.
+
+	        Postscript : in other news, I've added a 5v -> 3.3v PSU to the veroboard (see earlier). This has the nice consequence that all the connections (5v, GND, PA10, PA9) are on the right side of the STM32 Discovery board which means the communications board can just be put over to the right - I'll usually wire things to the left side :)
+
+		 This modification is optional, you can plug the serial chip into 3v3 directly - but it provides a little protection for the Serial Port circuit and allows you (for example) to put it in a box with a 9v battery if you so wish - reducing the connecting wires to PA9, PA10 and GND.
+
+
+Blinky II
+
+After having installed the GNU ARM Compiler, you need to change your path so it
+can access the executables. You can do this via :
+
+export PATH=$PATH:/aux/arm-gcc/bin
+
+for example (this assumes the executables are in /aux/arm-gcc/gin - it will
+vary depending on where you built them)
+
+You now need to download the very simple sources for Blinky 2 at
+http://www.robsons.org.uk/blinky.zip - this is a very simple file
+which flashes the two LEDs and varying rates, stopping one flashing
+whenever the button is pressed.
+
+To build it, just type
+
+make
+
+and to run it, reset the STM32 Discovery, type
+
+stm32flash -w blinky.bin -v /dev/ttyS0 -g 0x0
+
+which instructs the flash loader to write the binary, verify it, and run it - using /dev/ttyS0 as the interface. You should have flashing LEDs. 
+
+The link (mine) is still not 100% reliable. It seems to work best if you press the reset and immediately run the command.
+
+In my next post I will take a look at what blinky.c is actually doing.
+
+
+----
+
+Flash program: http://code.google.com/p/stm32flash/

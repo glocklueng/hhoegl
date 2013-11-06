@@ -1,18 +1,17 @@
 STM32 an der Hochschule Augsburg 
 --------------------------------
 
-- http://elk.informatik.fh-augsburg.de/cgi-bin/gitweb.cgi
+H. Hoegl, 2013-11-06 
+
+- Git Browser
+  http://hhoegl.informatik.fh-augsburg.de:8000/stm32-at-hsa
 
 - Anonym klonen:
-  git clone git://elk.informatik.fh-augsburg.de/srv/git/repositories/stm32-at-hsagit
-
-- Mit gitosis Zugriffsrechten:
-  git clone ssh://git@elk.informatik.fh-augsburg.de:2222/stm32-at-hsa.git
-
+  git clone git://elk.informatik.fh-augsburg.de/stm32-at-hsa.git
 
 Beispielprogramme
 
-  * pygmy-asm/
+  * asm/00-pygmy-asm/
   
     Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
     http://pygmy.utoh.org/riscy/cortex/led-stm32.html
@@ -23,19 +22,28 @@ Beispielprogramme
     M-x arm-elf-gdb --annotate=3, .gdbinit, Text mit Emacs org-mode 
     geschrieben.
 
+    Assembler Beispielprogramme von C. Schwarz, 2013:
+
+	    asm/01_blinky
+	    asm/02_systick
+	    asm/03_pwm
+	    asm/04_button
+	    asm/05_uart
+
+  * Beispielprogramme in C von C. Schwarz
+    
+            c/  DOG-Display/  peripherie/  template/
 
   * gostm32/
 
-    STM32 Discovery Tutorials. Using the STM32 Discovery with Open Source Software
-    Siehe gostm32.blogspot.com, Beispiel "blinky".
+    STM32 Discovery Tutorials. Using the STM32 Discovery with Open Source
+    Software. Siehe gostm32.blogspot.com, Beispiel "blinky" mit 
+    Erläuterung "Inside blinky.c".
 
+  * Hardware
 
-  * Linux, GCC Toolchain selber kompilieren, OpenOCD, GDB, insight, 
-    kgdb, BLink-Programm in C, Einfache Testumgebung fuer Unit-Tests.
-    http://fun-tech.se/stm32/index.php
+    - STM32VLDISCOVERY
+      http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/PF250863
 
-
-  * https://www.olimex.com/Products/ARM/ST/STM32-P103/
-
-
-H. Hoegl, 2012-02-03 
+    - Olimex STM32-P103
+      https://www.olimex.com/Products/ARM/ST/STM32-P103/
