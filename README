@@ -42,7 +42,7 @@ Beispielprogramme
 
   * Hardware
 
-    - STM32VLDISCOVERY
+    - STM32VLDISCOVERY (mit STM32F100RBT6)
       http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/PF250863
 
     - Olimex STM32-P103

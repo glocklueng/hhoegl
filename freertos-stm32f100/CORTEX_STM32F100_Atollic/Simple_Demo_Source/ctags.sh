@@ -1,1 +1,0 @@
-ctags-exuberant *.c *.h ../Utilities/STM32_EVAL/STM32_Discovery/STM32vldiscovery.[ch] ../Libraries/STM32F10x_StdPeriph_Driver/src/*.[ch] ../Libraries/STM32F10x_StdPeriph_Driver/inc/*.h ../Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/*.h
