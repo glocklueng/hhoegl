@@ -3,47 +3,69 @@ STM32 an der Hochschule Augsburg
 
 H. Hoegl, 2013-11-06 
 
-- Git Browser
+
+Dieses Repository kann man sich entweder anschauen mit dem 
+Git Browser 
+
   http://hhoegl.informatik.fh-augsburg.de:8000/stm32-at-hsa
 
-- Anonym klonen:
+oder anonym klonen:
+
   git clone git://elk.informatik.fh-augsburg.de/stm32-at-hsa.git
 
-Beispielprogramme
-
-  * asm/00-pygmy-asm/
-  
-    Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
-    http://pygmy.utoh.org/riscy/cortex/led-stm32.html
-    Der Autor Frank Sergeant hat auch das Pygmy Forth geschrieben, das
-    es auch für den STM32 gibt: http://pygmy.utoh.org/riscy. Mittlerweile
-    ist es auch portiert fuer TI/LuminaryMicro.
-    preasm.tcl, OpenOCD, Olimex ARM USB Tiny JTAG adaptor, gdb, Emacs, 
-    M-x arm-elf-gdb --annotate=3, .gdbinit, Text mit Emacs org-mode 
-    geschrieben.
-
-    Assembler Beispielprogramme von C. Schwarz, 2013:
-
-	    asm/01_blinky
-	    asm/02_systick
-	    asm/03_pwm
-	    asm/04_button
-	    asm/05_uart
-
-  * Beispielprogramme in C von C. Schwarz
-    
-            c/  DOG-Display/  peripherie/  template/
-
-  * gostm32/
-
-    STM32 Discovery Tutorials. Using the STM32 Discovery with Open Source
-    Software. Siehe gostm32.blogspot.com, Beispiel "blinky" mit 
-    Erläuterung "Inside blinky.c".
-
-  * Hardware
+Die Programmbeispiele sind für den STM32 Controller. Sie wurden 
+getestet auf folgender Hardware:
 
     - STM32VLDISCOVERY (mit STM32F100RBT6)
       http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/PF250863
 
     - Olimex STM32-P103
       https://www.olimex.com/Products/ARM/ST/STM32-P103/
+
+Beispielprogramme
+
+* asm/00-pygmy-asm/
+  
+  Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
+  http://pygmy.utoh.org/riscy/cortex/led-stm32.html
+  Der Autor Frank Sergeant hat auch das Pygmy Forth geschrieben, das
+  es auch für den STM32 gibt: http://pygmy.utoh.org/riscy. Mittlerweile
+  ist es auch portiert fuer TI/LuminaryMicro.
+  preasm.tcl, OpenOCD, Olimex ARM USB Tiny JTAG adaptor, gdb, Emacs, 
+  M-x arm-elf-gdb --annotate=3, .gdbinit, Text mit Emacs org-mode 
+  geschrieben.
+
+  Assembler Beispielprogramme von C. Schwarz, 2013:
+
+   asm/01_blinky
+   asm/02_systick
+   asm/03_pwm
+   asm/04_button
+   asm/05_uart
+
+
+* Beispielprogramme in C von C. Schwarz, 2013
+    
+    c/  DOG-Display/  peripherie/  template/
+
+  Diese Programme haben keine Abhängigkeiten von anderen Bibliotheken.
+
+
+* gostm32/
+
+  STM32 Discovery Tutorials. Using the STM32 Discovery with Open Source
+  Software. Siehe gostm32.blogspot.com, Beispiel "blinky" mit 
+  Erläuterung "Inside blinky.c".
+
+
+* stm32-stdperiph-3.5.0/
+
+  Die STM32 Standard-Peripherie Bibliothek, kompiliert für Linux.
+
+
+* stm32-stdperiph-examples-3.5.0/
+
+  Die Beispiele aus der STM32 Standard-Peripherie Bibliothek, kompiliert für 
+  Linux (in Arbeit).
+
+
