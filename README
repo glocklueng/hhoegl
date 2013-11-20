@@ -19,22 +19,16 @@ getestet auf folgender Hardware:
     - STM32VLDISCOVERY (mit STM32F100RBT6)
       http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/PF250863
 
-    - Olimex STM32-P103
-      https://www.olimex.com/Products/ARM/ST/STM32-P103/
 
 Beispielprogramme
 
 * asm/00-pygmy-asm/
-  
-  Cortex-M3 Assemblerprogrammierung auf dem STM32, 2011
-  http://pygmy.utoh.org/riscy/cortex/led-stm32.html
-  Der Autor Frank Sergeant hat auch das Pygmy Forth geschrieben, das
-  es auch für den STM32 gibt: http://pygmy.utoh.org/riscy. Mittlerweile
-  ist es auch portiert fuer TI/LuminaryMicro.
-  preasm.tcl, OpenOCD, Olimex ARM USB Tiny JTAG adaptor, gdb, Emacs, 
-  M-x arm-elf-gdb --annotate=3, .gdbinit, Text mit Emacs org-mode 
-  geschrieben.
 
+  Das Demo Programm ist von Frank Sergeant, leicht abgewandelt. Damit das 
+  Programm kompiliert werden kann muss ein Interpreter fuer die Sprache
+  TCL ("tickl") installiert sein. Dieser ist im Paket tcl8.5.  
+  Siehe http://pygmy.utoh.org/riscy/cortex/.
+  
   Assembler Beispielprogramme von C. Schwarz, 2013:
 
    asm/01_blinky
