@@ -32,7 +32,15 @@ b _start
 monitor reset halt
 #continue
 
-define myflash
+define flashme
+monitor reset halt
+monitor flash probe 0
+monitor flash write_image erase led-stm32.bin 0x08000000
+monitor reset init
+continue
+end
+
+define flashme2
 monitor halt
 monitor poll
 monitor flash erase_sector 0 0 0
@@ -40,6 +48,7 @@ monitor flash write_bank 0 led-stm32.bin 0
 monitor reset init
 continue
 end
+
 
 define testfunc 
 printf "Parameter 1 is %d\n", $arg0
