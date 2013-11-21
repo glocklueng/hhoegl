@@ -17,7 +17,7 @@
         .equ RCC_APB2ENR, 0x40021018
         .equ STACKINIT,   0x20005000
 
-        .equ LEDDELAY,    800000
+        .equ LEDDELAY,    200000  ; 800000
 
 .section .text
         .org 0

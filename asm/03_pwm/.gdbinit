@@ -3,5 +3,5 @@ set input-radix 0x10
 set output-radix 0x10
 set endian little
 dir .
-file led_systick.elf
+file led_pwm.elf
 target remote localhost:3333

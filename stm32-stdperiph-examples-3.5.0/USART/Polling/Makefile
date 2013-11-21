@@ -21,13 +21,13 @@ LIBINCDIR = $(ROOTDIR)/include
 CMSISSRC = $(ROOTDIR)/CMSIS/CM3/DeviceSupport/ST/STM32F10x/
 CMSISCORE = $(ROOTDIR)/CMSIS/CM3/CoreSupport/
 
-ASSRC = startup_stm32f10x_ld_vl.s
+ASSRC = startup_stm32f10x_md_vl.s
 ASOBJ = $(ASSRC:.s=.o)
 
 SRCS = main.c stm32f10x_it.c system_stm32f10x.c 
 OBJS = $(SRCS:.c=.o) $(ASOBJ)
 
-CFLAGS = -g -O1 -c -fno-common -mcpu=cortex-m3 -mthumb -DSTM32F10X_LD_VL=1 -DUSE_STDPERIPH_DRIVER=1 -I$(LIBINCDIR) -I$(CMSISSRC) -I$(CMSISCORE) -I.
+CFLAGS = -g -O1 -c -fno-common -mcpu=cortex-m3 -mthumb -DSTM32F10X_MD_VL=1 -DUSE_STDPERIPH_DRIVER=1 -I$(LIBINCDIR) -I$(CMSISSRC) -I$(CMSISCORE) -I.
 
 all: main
 

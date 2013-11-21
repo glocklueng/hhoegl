@@ -84,6 +84,10 @@ siehe auch: stm32f1x mass_erase 0
 GDB
 ----
 
+Achtung: In diesem Verzeichnis gibt es auch die Datei ".gdbinit".
+
+arm-none-eabi-gdb --tui    Text User Interface
+
 arm-none-eabi-gdb -h
 
 arm-none-eabi-gdb -x <config>
