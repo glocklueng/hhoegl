@@ -1,0 +1,85 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADC1_2_IRQHandler	startup.c	234;"	d	file:
+ADC3_IRQHandler	startup.c	263;"	d	file:
+BusFault_Handler	startup.c	210;"	d	file:
+CAN1_RX1_IRQHandler	startup.c	237;"	d	file:
+CAN1_SCE_IRQHandler	startup.c	238;"	d	file:
+DMA1_Channel1_IRQHandler	startup.c	227;"	d	file:
+DMA1_Channel2_IRQHandler	startup.c	228;"	d	file:
+DMA1_Channel3_IRQHandler	startup.c	229;"	d	file:
+DMA1_Channel4_IRQHandler	startup.c	230;"	d	file:
+DMA1_Channel5_IRQHandler	startup.c	231;"	d	file:
+DMA1_Channel6_IRQHandler	startup.c	232;"	d	file:
+DMA1_Channel7_IRQHandler	startup.c	233;"	d	file:
+DMA2_Channel1_IRQHandler	startup.c	272;"	d	file:
+DMA2_Channel2_IRQHandler	startup.c	273;"	d	file:
+DMA2_Channel3_IRQHandler	startup.c	274;"	d	file:
+DMA2_Channel4_5_IRQHandler	startup.c	275;"	d	file:
+DebugMon_Handler	startup.c	213;"	d	file:
+Default_Handler	startup.c	/^void Default_Handler(void) {$/;"	f
+EXTI0_IRQHandler	startup.c	222;"	d	file:
+EXTI15_10_IRQHandler	startup.c	256;"	d	file:
+EXTI1_IRQHandler	startup.c	223;"	d	file:
+EXTI2_IRQHandler	startup.c	224;"	d	file:
+EXTI3_IRQHandler	startup.c	225;"	d	file:
+EXTI4_IRQHandler	startup.c	226;"	d	file:
+EXTI9_5_IRQHandler	startup.c	239;"	d	file:
+FLASH_IRQHandler	startup.c	220;"	d	file:
+FSMC_IRQHandler	startup.c	264;"	d	file:
+GPIO_InitStructure	main.c	/^	GPIO_InitTypeDef GPIO_InitStructure;$/;"	l
+I2C1_ER_IRQHandler	startup.c	248;"	d	file:
+I2C1_EV_IRQHandler	startup.c	247;"	d	file:
+I2C2_ER_IRQHandler	startup.c	250;"	d	file:
+I2C2_EV_IRQHandler	startup.c	249;"	d	file:
+MMI_Handler	startup.c	208;"	d	file:
+MemManage_Handler	startup.c	209;"	d	file:
+PVD_IRQHandler	startup.c	217;"	d	file:
+PendSV_Handler	startup.c	214;"	d	file:
+RCC_IRQHandler	startup.c	221;"	d	file:
+RTCAlarm_IRQHandler	startup.c	257;"	d	file:
+RTC_IRQHandler	startup.c	219;"	d	file:
+Reset_Handler	startup.c	/^void Reset_Handler(void) {$/;"	f
+SDIO_IRQHandler	startup.c	265;"	d	file:
+SPI1_IRQHandler	startup.c	251;"	d	file:
+SPI2_IRQHandler	startup.c	252;"	d	file:
+SPI3_IRQHandler	startup.c	267;"	d	file:
+SVC_Handler	startup.c	212;"	d	file:
+SysTick_Handler	startup.c	215;"	d	file:
+TAMPER_IRQHandler	startup.c	218;"	d	file:
+TIM1_BRK_IRQHandler	startup.c	240;"	d	file:
+TIM1_CC_IRQHandler	startup.c	243;"	d	file:
+TIM1_TRG_COM_IRQHandler	startup.c	242;"	d	file:
+TIM1_UP_IRQHandler	startup.c	241;"	d	file:
+TIM2_IRQHandler	startup.c	244;"	d	file:
+TIM3_IRQHandler	startup.c	245;"	d	file:
+TIM4_IRQHandler	startup.c	246;"	d	file:
+TIM5_IRQHandler	startup.c	266;"	d	file:
+TIM6_IRQHandler	startup.c	270;"	d	file:
+TIM7_IRQHandler	startup.c	271;"	d	file:
+TIM8_BRK_IRQHandler	startup.c	259;"	d	file:
+TIM8_CC_IRQHandler	startup.c	262;"	d	file:
+TIM8_TRG_COM_IRQHandler	startup.c	261;"	d	file:
+TIM8_UP_IRQHandler	startup.c	260;"	d	file:
+UART4_IRQHandler	startup.c	268;"	d	file:
+UART5_IRQHandler	startup.c	269;"	d	file:
+USART1_IRQHandler	startup.c	253;"	d	file:
+USART2_IRQHandler	startup.c	254;"	d	file:
+USART3_IRQHandler	startup.c	255;"	d	file:
+USBWakeUp_IRQHandler	startup.c	258;"	d	file:
+USB_HP_CAN1_TX_IRQHandler	startup.c	235;"	d	file:
+USB_LP_CAN1_RX0_IRQHandler	startup.c	236;"	d	file:
+UsageFault_Handler	startup.c	211;"	d	file:
+WEAK	startup.c	5;"	d	file:
+WWDG_IRQHandler	startup.c	216;"	d	file:
+__Init_Data	startup.c	/^void __Init_Data(void) {$/;"	f
+delay	main.c	/^	u32 delay;$/;"	l
+dst	startup.c	/^	unsigned long *src, *dst;$/;"	l
+g_pfnVectors	startup.c	/^void (* const g_pfnVectors[])(void) = {$/;"	v
+intfunc	startup.c	/^typedef void( *const intfunc )( void );$/;"	t	file:
+main	main.c	/^int main(int argc, char *argv[])$/;"	f
+src	startup.c	/^	unsigned long *src, *dst;$/;"	l

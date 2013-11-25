@@ -21,8 +21,9 @@ getestet auf folgender Hardware:
 
 
 Beispielprogramme
+-----------------
 
-* asm/00-pygmy-asm/
+* asm/01_blinky
 
   Das Demo Programm ist von Frank Sergeant, leicht abgewandelt. Damit das 
   Programm kompiliert werden kann muss ein Interpreter fuer die Sprache
@@ -31,7 +32,6 @@ Beispielprogramme
   
   Assembler Beispielprogramme von C. Schwarz, 2013:
 
-   asm/01_blinky
    asm/02_systick
    asm/03_pwm
    asm/04_button

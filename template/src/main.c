@@ -62,3 +62,7 @@ int main(int argc, char *argv[])
 	}
 }
 
+
+/* 
+vim: tags=tags,../tags
+*/
