@@ -1,7 +1,7 @@
 STM32 an der Hochschule Augsburg 
 --------------------------------
 
-H. Hoegl, 2013-11-06 
+H. Hoegl, 2013-11-06, <Hubert.Hoegl@hs-augsburg.de> 
 
 
 Dieses Repository kann man sich entweder anschauen mit dem 
@@ -14,33 +14,38 @@ oder anonym klonen:
   git clone git://elk.informatik.fh-augsburg.de/stm32-at-hsa.git
 
 Die Programmbeispiele sind für den STM32 Controller. Sie wurden 
-getestet auf folgender Hardware:
+getestet auf dem STM32VLDISCOVERY mit STM32F100RBT6 Controller. 
+Das User Manual zu diesem Board findet man im Netz unter
 
-    - STM32VLDISCOVERY (mit STM32F100RBT6)
-      http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/PF250863
+http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/PF250863
 
 
 Beispielprogramme
+-----------------
 
-* asm/00-pygmy-asm/
+* asm/01-blinky
 
   Das Demo Programm ist von Frank Sergeant, leicht abgewandelt. Damit das 
   Programm kompiliert werden kann muss ein Interpreter fuer die Sprache
-  TCL ("tickl") installiert sein. Dieser ist im Paket tcl8.5.  
+  TCL ("tickl") installiert sein. Dieser ist im Paket tcl8.5 enthalten.
   Siehe http://pygmy.utoh.org/riscy/cortex/.
   
-  Assembler Beispielprogramme von C. Schwarz, 2013:
+  Weitere Beispielprogramme sind (von C. Schwarz, 2013):
 
-   asm/01_blinky
    asm/02_systick
    asm/03_pwm
    asm/04_button
    asm/05_uart
 
+  Diese Programme haben keine Abhängigkeiten von anderen Bibliotheken.
+
 
 * Beispielprogramme in C von C. Schwarz, 2013
     
-    c/  DOG-Display/  peripherie/  template/
+   c/  
+   DOG-Display/  
+   peripherie/  
+   template/
 
   Diese Programme haben keine Abhängigkeiten von anderen Bibliotheken.
 
@@ -48,8 +53,9 @@ Beispielprogramme
 * gostm32/
 
   STM32 Discovery Tutorials. Using the STM32 Discovery with Open Source
-  Software. Siehe gostm32.blogspot.com, Beispiel "blinky" mit 
-  Erläuterung "Inside blinky.c".
+  Software. Beispiel "blinky" mit Erläuterung "Inside blinky.c".
+
+  http://gostm32.blogspot.de
 
 
 * stm32-stdperiph-3.5.0/
