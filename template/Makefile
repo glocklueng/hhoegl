@@ -33,3 +33,5 @@ clean:
 		rm -f $(PROGRAM).info_code
 		rm -f $(PROGRAM).info_symbol
 
+tags:
+		ctags -L tagfiles

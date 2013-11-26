@@ -23,7 +23,7 @@ http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/PF250863
 Beispielprogramme
 -----------------
 
-* asm/01-blinky
+* asm/01_blinky
 
   Das Demo Programm ist von Frank Sergeant, leicht abgewandelt. Damit das 
   Programm kompiliert werden kann muss ein Interpreter fuer die Sprache

@@ -1,0 +1,67 @@
+H. Hoegl, 2013-11-14 
+
+Quelle dieses Beispiels:
+
+  http://www.emcu.it/STM32/STM32Library/TwoWordsConcerningSTM32Library.html#Code_example
+
+Siehe den Artikel "Things to remember when developing a program for STM32 using
+STM32-Library"
+   
+  http://www.emcu.it/STM32/STM32VLDiscovery_Test/Things%20to%20remember%20when%20developing%20a%20program%20for%20STM32%20using%20STM32-Library.html
+
+Autor: Enrico Marinoni
+----
+
+1. Kopiere die Dateien 
+
+   STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.[ch] 
+
+in das aktuelle Demo-Verzeichnis. Die .c Datei muss angepasst werden (u.a.
+Takt, PLL, ...)
+
+2. Kopiere 
+
+   STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/stm32f10x.h
+
+und konfiguriere diese Datei (Auswahl des Baustein-Typs).
+
+3. Kopiere
+
+   STM32F10x_StdPeriph_Lib_V3.5.0/Project/STM32F10x_StdPeriph_Examples/USART/Polling/stm32f10x_it.[ch]
+
+in das aktuelle Verzeichnis. Diese beiden Dateien sind immer nur in den
+Applikationsbeispielen enthalten. Sie enthalten die Interrupt Routinen (falls
+verwendet). Die Namen der Interrupt-Handler fuer die verschiedenen
+Peripherie-Module sind im Startup Code startup_stm32f10x_xxx.s enthalten.
+
+
+4. Kopiere stm32f10x_conf.h in das aktuelle Verzeichnis. Diese Datei ist 
+   immer nur in den Applikationsbeispielen enthalten. Darin werden die 
+   gewuenschten Header Dateien aktiviert.
+
+
+5. Kopiere den Startup Code
+
+   Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/
+
+   Den gibt es für arm, gcc_ride7, iar und TrueSTUDIO. Verwende
+   gcc_ride7.
+
+   arm = ARM MDK
+   gcc_ride7 = Raisonance RIDE ARM (basiert auf GCC)
+   iar = IAR Embedded Workbench
+   TrueSTUDIO = Atollic TrueSTUDIO
+
+   Der STM32F100RBT6B auf dem VLDISCOVERY ist mit 128K Flash und 8K SRAM
+   ein medium-density value line Prozessor. 
+   Nehme deshalb gcc_ride7/startup_stm32f10x_md_vl.s.
+
+6. Kopiere libst.a in das aktuelle Verzeichnis
+
+   libst wurde in stm32-stdperiph-3.5.0-linux/build-hh/ gebaut.
+
+7. Linker script stm32f100.ld von Geoffrey Brown (STM32-Template).
+
+8. Mein Standard-Makefile anlegen (fast identisch mit
+   stm32-stdperiph-3.5.0-linux/build-hh/Examples/USART/Polling/Makefile)
+

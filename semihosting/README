@@ -1,0 +1,12 @@
+Die Informationen ueber "semihosting" stammen aus dem Artikel
+von Andrey Yurovsky (Juli 2013)
+
+  https://plus.google.com/102918008620512795495/posts/5rupuziHKGC
+
+Statt auf der wirklichen Hardware kann man semihosting auch mit qemu-system-arm
+machen:
+
+   qemu-system-arm -cpu cortex-m3 -nographic -monitor null -serial null -semihosting -kernel app.elf -gdb tcp::51234
+
+   arm-none-eabi-gdb -ex "target remote localhost:51234" -ex "load"  app.elf
+

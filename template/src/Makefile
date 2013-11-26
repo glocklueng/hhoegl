@@ -14,3 +14,5 @@ app.a: $(OBJS)
 clean:
 		rm -f app.a $(OBJS)
 
+tags:
+	ctags --c-kinds=+l  *.[ch]
