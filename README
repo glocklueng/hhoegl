@@ -69,3 +69,19 @@ Beispielprogramme
   Linux (in Arbeit).
 
 
+Ordner etc/
+-----------
+
+openocd.cfg  
+  OpenOCD Konfiguration fuer das STM32VLDISCOVERY
+
+oocd-stm32_h103.cfg  
+  OpenOCD Konfiguration fuer das Olimex STM32-H103 an einem Olimex JTAG Tiny
+  Adapter.
+
+sam7.py - Fernsteuern der Telnet Verbindung ueber 'expect' an einem Atmel 
+  SAM7
+
+stm32_flash.py - Flash Programm in Python
+
+stm32_flash.pl  - Flash Programm in Perl

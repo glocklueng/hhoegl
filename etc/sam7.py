@@ -3,7 +3,7 @@
 # http://pexpect.sourceforge.net
 # child.expect(<str>, timeout=<secs>)
 
-# import pexpect, re, string
+import pexpect, re, string
 import sys
 
 SLOW_CLOCK = 32000 # plus/minus 10 kHz
@@ -187,5 +187,3 @@ if __name__ == "__main__":
     n = pow(2, c.pres)
     print "Divide pll_out by %d" % n
     print "=> Processor clock = %d" % (pll_out / n)
-
-
