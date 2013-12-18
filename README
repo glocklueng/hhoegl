@@ -4,7 +4,13 @@ STM32 an der Hochschule Augsburg
 H. Hoegl, 2013-11-06, <Hubert.Hoegl@hs-augsburg.de> 
 
 
-Dieses Repository kann man sich entweder anschauen mit dem 
+Dieses Repository ist Teil des STM32LAB der Hochschule
+Augsburg.
+
+          http://stm32lab.hs-augsburg.de
+
+
+Man kann man sich den Code entweder anschauen mit dem 
 Git Browser 
 
   http://hhoegl.informatik.fh-augsburg.de:8000/stm32-at-hsa
@@ -28,7 +34,8 @@ Beispielprogramme
   Das Demo Programm ist von Frank Sergeant, leicht abgewandelt. Damit das 
   Programm kompiliert werden kann muss ein Interpreter fuer die Sprache
   TCL ("tickl") installiert sein. Dieser ist im Paket tcl8.5 enthalten.
-  Siehe http://pygmy.utoh.org/riscy/cortex/.
+  Siehe http://pygmy.utoh.org/riscy/cortex/. Die Assembler Beispielprogramme
+  koennen nur mit dem OpenOCD geflasht werden.
   
   Weitere Beispielprogramme sind (von C. Schwarz, 2013):
 
@@ -58,6 +65,13 @@ Beispielprogramme
   http://gostm32.blogspot.de
 
 
+* semihosting/
+
+  Mit "semihosting" kann ein Programm auf dem STM32 die Resourcen des
+  Entwicklungsrechners nutzen, z.B. die Ausgabe auf dem Bildschirm und das
+  Anlegen von Dateien.  Das Beispiel funktioniert aber noch nicht.
+
+
 * stm32-stdperiph-3.5.0/
 
   Die STM32 Standard-Peripherie Bibliothek, kompiliert für Linux.
@@ -67,6 +81,7 @@ Beispielprogramme
 
   Die Beispiele aus der STM32 Standard-Peripherie Bibliothek, kompiliert für 
   Linux (in Arbeit).
+
 
 
 Ordner etc/
