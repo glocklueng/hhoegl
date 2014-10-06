@@ -1,0 +1,8 @@
+Todo: Replace all STM_EVAL_LEDInit(xxx) with STM32vldiscovery_LEDInit(xxx).
+Similar for other functions. See the files in
+Utilities/STM32_EVAL/STM32_Discovery/.
+
+NOT TESTED!
+
+H. Hoegl, 2014-10-06 
+
