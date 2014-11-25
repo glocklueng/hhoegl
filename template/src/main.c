@@ -2,7 +2,8 @@
 * Test-program for STM32VLDiscovery, evaluation board for “STM32F100RBT6”.
 * After program start green LED and blue LED will blink.
 *
-* for details see http://www.seng.de/downloads/HowTo_ToolChain_STM32_Ubuntu.pdf
+* for details see "Installing a toolchain for Cortex-M3/STM32 on GNU/Linux"
+*    http://cms.seng.de/service-support/downloads/
 *
 * Program has to be compiled with optimizer setting "-O0".
 * Otherwise delay via while-loop will not work correctly.
