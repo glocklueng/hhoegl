@@ -60,7 +60,7 @@ telnet localhost 4444
 
 > halt
 
-> flash info 
+> flash info 0
 
 > flash erase_sector 0 0 0
 
