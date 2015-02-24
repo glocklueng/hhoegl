@@ -31,15 +31,16 @@ def flash(filename):
     time.sleep(delay)
     child.sendline("poll")
     child.expect("> ")
-    print "--- 2"
-    print child.before
-    time.sleep(delay)
-    child.sendline("flash erase_sector 0 0 0")
-    child.expect("> ")
+    #print "--- 2"
+    #print child.before
+    #time.sleep(delay)
+    #child.sendline("flash erase_sector 0 0 0")
+    #child.expect("> ")
     print "--- 3"
     print child.before
     time.sleep(delay)
-    child.sendline("flash write_bank 0 %s 0" % filename)
+    #child.sendline("flash write_bank 0 %s 0" % filename)
+    child.sendline("flash write_image erase %s 0x08000000" % filename)
     child.expect("> ")
     print "--- 4"
     print child.before
