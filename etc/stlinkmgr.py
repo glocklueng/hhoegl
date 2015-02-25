@@ -51,7 +51,7 @@ def search_adaptor():
         else:
             print("device not bound to usb-storage")
     else:
-        print "No ST Link adaptor found"
+        print("No ST Link adaptor found")
 
 
 def check_usbstorage_bound(usbid):
@@ -72,7 +72,7 @@ def unbind():
             print("unbind successful")
             return usbid
     else:
-        print "ST Link is not bound"
+        print("ST Link is not bound")
         return None
 
 
@@ -87,7 +87,7 @@ def bind():
             print("bind successful")
             return usbid
     else:
-        print "ST Link is already bound"
+        print("ST Link is already bound")
 
 
 def main(argv):
@@ -99,7 +99,7 @@ def main(argv):
       sys.exit(2)
    if not opts:
        search_adaptor()
-       print 
+       print("\n")
        usage()
    for opt, arg in opts:
       if opt in ('-h', '--help'):
@@ -111,7 +111,7 @@ def main(argv):
          unbind()
       if opt in ('-s', '--search'):
          search_adaptor()
-         print
+         print("\n")
          usage()
 
 
