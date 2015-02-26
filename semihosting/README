@@ -78,3 +78,7 @@ void put_char(char c)
   http://e2e.ti.com/support/microcontrollers/stellaris_arm/f/471/p/44452/157899
   http://pabigot.github.io/bspacm/newlib.html
 
+
+  Semihosting/Malloc Beispiel in 
+  https://github.com/libopencm3/libopencm3-examples/blob/master/examples/stm32/l1/stm32l-discovery/usart-semihosting/usart-semihosting.c
+  ansehen.
