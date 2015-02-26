@@ -1,3 +1,23 @@
+  Aktueller Stand: Semihosting und Malloc funktionieren mit der einfachen
+  Initialisierung, die wir fue die Beispielprogramme gewaehlt haben, nicht
+  (fuer Option -nostdlib).
+  Um --specs=rdimon.specs oder nosys.specs verwenden zu koennen, muss man eine
+  andere Initialisierung des Mikrocontroller waehlen, so wie es in Readme
+  von gcc-arm-embedded erklaert ist. Diese Initialisierung ist die, die auch
+  bei CMSIS verwendet wird. Die samples fuer Linker Scripts und Startup Files
+  sind in gcc-arm-none-eabi-4_9-2014q4-20141203/src/samples/. Man sollte das
+  Startup File startup_ARMCM3.S verwenden.
+
+  Die Linker Flags sollten dann etwa so aussehen:
+
+  LDFLAGS  = -Txxx.ld -nostartfiles --specs=rdimon.specs -Wl,--start-group -lgcc -lc -lm -lrdimon -Wl,--end-group
+
+  Das rdimon.specs ist fuer semihosting. Ohne semihosting kann man
+  -specs=nosys.specs verwenden.
+
+2015-02-26 | Die Verzeichnisse startup/ und ldscripts/ sind aus
+gcc-arm-none-eabi-4_9-2014q4-20141203/src/samples/ entnommen.
+
 Die Informationen ueber "semihosting" stammen aus dem Artikel
 von Andrey Yurovsky (Juli 2013)
 
@@ -11,4 +31,50 @@ machen:
    arm-none-eabi-gdb -ex "target remote localhost:51234" -ex "load"  app.elf
 
 
-DIESES PROGRAMM LAEUFT NOCH NICHT
+Mehr Info:
+
+- https://github.com/justyn/semihosting-cortexm-uos (trace_printf)
+
+
+* Semihosting Code
+  https://plus.google.com/+AndreyYurovsky/posts/5rupuziHKGC
+
+  http://electronics.stackexchange.com/questions/149387/how-do-i-print-debug-messages-to-gdb-console-with-stm32-discovery-board-using-gd
+
+----- Moeglichkeit 1, direkt auf den Semihosting Kanal zu schreiben
+const char *s = "Hello world\n";
+uint32_t m[] = { 2/*stderr*/, (uint32_t)s, sizeof(s)/sizeof(char) };
+
+send_command(0x05/* some interrupt ID */, m);
+
+void send_command(int command, void *message)
+{
+   asm("mov r0, %[cmd];"
+       "mov r1, %[msg];"
+       "bkpt #0xAB"
+       :
+       : [cmd] "r" (command), [msg] "r" (message)
+       : "r0", "r1", "memory");
+}
+---
+
+----- Moeglichkeit 2
+void put_char(char c)
+{
+    asm (
+    "mov r0, #0x03\n"   /* SYS_WRITEC */
+    "mov r1, %[msg]\n"
+    "bkpt #0xAB\n"
+    :
+    : [msg] "r" (&c)
+    : "r0", "r1"
+    );
+}
+----
+
+
+* Malloc Problem
+  http://stackoverflow.com/questions/10467244/using-newlibs-malloc-in-an-arm-cortex-m3
+  http://e2e.ti.com/support/microcontrollers/stellaris_arm/f/471/p/44452/157899
+  http://pabigot.github.io/bspacm/newlib.html
+

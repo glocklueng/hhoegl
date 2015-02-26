@@ -7,7 +7,7 @@
 # The GDB debugger documentation is available online by typing
 # "info gdb". Be sure to install the package "gdb-doc".
 
-set complaints 1
+# set complaints 20
 
 set output-radix 0x10
 set input-radix 0x10
@@ -20,8 +20,8 @@ set prompt (arm-gdb)
 
 file main.elf
 
-set remote hardware-breakpoint-limit 6
-set remote hardware-watchpoint-limit 4
+#set remote hardware-breakpoint-limit 6
+#set remote hardware-watchpoint-limit 4
 
 # connect to openOCD running on gdb port 3333
 target remote localhost:3333
