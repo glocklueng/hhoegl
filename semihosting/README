@@ -15,6 +15,14 @@
   Das rdimon.specs ist fuer semihosting. Ohne semihosting kann man
   -specs=nosys.specs verwenden.
 
+  An die folgenden Tutorials halten (die enthalten alle einen Bezug auf
+  startup_ARMCM3.S):
+  - http://www.scienceprog.com/updating-stm32-c-template-with-cmsis-v3/
+  - https://balau82.wordpress.com/2013/09/15/debugging-the-stm32-p152-board-with-gdb/
+  - https://balau82.wordpress.com/2013/08/14/flashing-the-stm32-p152-board-with-openocd/
+  - Developing a Generic Hard Fault handler for ARM Cortex-M3/Cortex-M4
+    https://blog.feabhas.com/2013/02/developing-a-generic-hard-fault-handler-for-arm-cortex-m3cortex-m4/
+
 2015-02-26 | Die Verzeichnisse startup/ und ldscripts/ sind aus
 gcc-arm-none-eabi-4_9-2014q4-20141203/src/samples/ entnommen.
 
